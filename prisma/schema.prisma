@@ -30,7 +30,3 @@ model Books {
   authorId Int
 }
 
-model newTable {
-   id Int @id @default(autoincrement())
-  
-}
