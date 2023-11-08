@@ -12,6 +12,7 @@ type Book = {
 };
 
 async function seed() {
+  await prisma.authors.deleteMany({});
   await Promise.all(
     getAuthors().map((author) => {
       return prisma.authors.create({
