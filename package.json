@@ -7,8 +7,8 @@
     "seed": "node --require esbuild-register prisma/seed.ts"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.ts"
+    "test": "npx jest test",
+    "dev": "nodemon src/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +32,7 @@
     "nodemon": "^3.0.1",
     "prisma": "^5.5.2",
     "supertest": "^6.3.3",
+    "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }

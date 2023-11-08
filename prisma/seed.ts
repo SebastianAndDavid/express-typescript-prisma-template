@@ -79,5 +79,4 @@ function getBooks(): Array<Book> {
     },
   ];
 }
-
-seed();
+export default seed;
