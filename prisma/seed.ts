@@ -11,6 +11,7 @@ type Book = {
   datePublished: Date;
 };
 
+//seed function
 async function seed() {
   await Promise.all(
     getAuthors().map((author) => {
