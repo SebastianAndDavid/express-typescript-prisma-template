@@ -77,6 +77,11 @@ function getBooks(): Array<Book> {
       isFiction: true,
       datePublished: new Date(),
     },
+    {
+      title: "Rome and Juliet",
+      isFiction: true,
+      datePublished: new Date(),
+    },
   ];
 }
 export default seed;
