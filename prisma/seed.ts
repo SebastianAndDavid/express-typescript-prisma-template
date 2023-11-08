@@ -11,8 +11,8 @@ type Book = {
   datePublished: Date;
 };
 
-//seed function
 async function seed() {
+  await prisma.authors.deleteMany({});
   await Promise.all(
     getAuthors().map((author) => {
       return prisma.authors.create({
@@ -28,6 +28,20 @@ async function seed() {
       firstName: "William",
     },
   });
+  await Promise.all(
+    getBooks().map((book) => {
+      const { title, isFiction, datePublished } = book;
+      if (author)
+        return prisma.books.create({
+          data: {
+            title,
+            isFiction,
+            datePublished,
+            authorId: author.id,
+          },
+        });
+    })
+  );
 }
 
 function getAuthors(): Array<Author> {
@@ -64,5 +78,11 @@ function getBooks(): Array<Book> {
       isFiction: true,
       datePublished: new Date(),
     },
+    {
+      title: "Rome and Juliet",
+      isFiction: true,
+      datePublished: new Date(),
+    },
   ];
 }
+export default seed;
