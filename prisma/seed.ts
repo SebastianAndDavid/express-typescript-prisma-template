@@ -1,4 +1,4 @@
-import { prisma } from "../src/utils/db.server";
+import { prisma } from '../src/utils/db.server';
 
 type Author = {
   firstName: string;
@@ -21,11 +21,11 @@ async function seed() {
           lastName: author.lastName,
         },
       });
-    })
+    }),
   );
   const author = await prisma.authors.findFirst({
     where: {
-      firstName: "William",
+      firstName: 'William',
     },
   });
   await Promise.all(
@@ -40,23 +40,23 @@ async function seed() {
             authorId: author.id,
           },
         });
-    })
+    }),
   );
 }
 
 function getAuthors(): Array<Author> {
   return [
     {
-      firstName: "Anthony",
-      lastName: "Bourdain",
+      firstName: 'Anthony',
+      lastName: 'Bourdain',
     },
     {
-      firstName: "Frank",
-      lastName: "Herbert",
+      firstName: 'Frank',
+      lastName: 'Herbert',
     },
     {
-      firstName: "William",
-      lastName: "Shakespear",
+      firstName: 'William',
+      lastName: 'Shakespear',
     },
   ];
 }
@@ -64,22 +64,22 @@ function getAuthors(): Array<Author> {
 function getBooks(): Array<Book> {
   return [
     {
-      title: "Dune",
+      title: 'Dune',
       isFiction: true,
       datePublished: new Date(),
     },
     {
-      title: "Kitchen Confidential",
+      title: 'Kitchen Confidential',
       isFiction: false,
       datePublished: new Date(),
     },
     {
-      title: "Hamlet",
+      title: 'Hamlet',
       isFiction: true,
       datePublished: new Date(),
     },
     {
-      title: "Rome and Juliet",
+      title: 'Rome and Juliet',
       isFiction: true,
       datePublished: new Date(),
     },
