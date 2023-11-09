@@ -2,6 +2,7 @@
 import express, { Express } from 'express';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
+import bookController from './books/bookController';
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ const app: Express = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/books', bookController);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
